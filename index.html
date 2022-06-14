@@ -3,15 +3,18 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<title>サンプル</title>
 </head>
 <body>
-
-<h1>サンプル</h1>
-
-<p id="msg">Cookieの読み書きを行います。</p>
-
 <script>
+var kigen = 30; //Cookieの期限（1ヶ月とする）←適宜、適切な期限を設定
+var nowdate = new Date(); //現在の日付データを取得
+nowdate.setTime(nowdate.getTime() + kigen*24*60*60*1000); //1ヶ月後の日付データを作成
+var kigendate = nowdate.toGMTString(); //GMT形式に変換して変数kigendateに格納
+var cookievalue = "session_id=user_0001; ";
+var expires = "expires=" + kigendate + "; ";
+var path = "path=/";
+var dt = new Date('1999-12-31T23:59:59Z'); // 過去の日付をGMT形式に変換
+document.cookie = 27 + expires + path;
 document.cookie = 'old=27';
 document.cookie = 'address=Tokyo';
 let name = encodeURIComponent('田中');
