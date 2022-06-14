@@ -42,11 +42,12 @@ function delCookie()
   location.reload();
 }
 //-->
+  document.getElementById("text0").value = "blue";
 </script>
 
 <div style="background-color : #CCC;">
   <div id="dat"></div><br>
-  <input type="text" id="dat2" placeholder="クッキーに保存する内容を入力して下さい" value="getcookie()"><br>
+  <input type="text0" id="dat2" placeholder="クッキーに保存する内容を入力して下さい"><br>
   <input type="button" value="クッキー保存" onclick="saveCookie()"><br>
   <input type="button" value="クッキー削除" onclick="delCookie()">
 </div>
