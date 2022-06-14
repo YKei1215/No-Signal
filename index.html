@@ -6,23 +6,21 @@
 </head>
 <body>
 <script>
-var kigen = 30; //Cookieの期限（1ヶ月とする）←適宜、適切な期限を設定
-var nowdate = new Date(); //現在の日付データを取得
-nowdate.setTime(nowdate.getTime() + kigen*24*60*60*1000); //1ヶ月後の日付データを作成
-var kigendate = nowdate.toGMTString(); //GMT形式に変換して変数kigendateに格納
-var cookievalue = "session_id=user_0001; ";
-var expires = "expires=" + kigendate + "; ";
-var path = "path=/";
-var dt = new Date('1999-12-31T23:59:59Z'); // 過去の日付をGMT形式に変換
-document.cookie = 27 + expires + path;
-document.cookie = 'old=27';
-document.cookie = 'address=Tokyo';
-let name = encodeURIComponent('田中');
-document.cookie = 'name=' + name;
+var newData = data.filter(function(item, index){
+  if (item.name != "jiro") return true;
+});
 
-let e = document.getElementById('msg');
-e.insertAdjacentHTML('afterend', '<p>' + document.cookie + '</p>');
+var changeData = data.filter(function(item, index){
+  if (item.name == "jiro") return true;
+});
+changeData[0].exam.math = 75;
+
+newData.push(changeArray[0]);
+// [注意]
+// 最後にchangeArray[0]ではなくchangeArrayでpushすると
+// 更新されたデータだけ配列型で入ってしまう。
+
+data = newData;
 </script>
-
 </body>
 </html>
