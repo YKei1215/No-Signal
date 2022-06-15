@@ -13,17 +13,17 @@ window.onload　=　function() {
     //クッキーの保存期間として5分後をセット
     day.setTime(day.getTime() + 21*24*60*60*1000);
     //入力内容と日付データをクッキーへ書き込む
-    document.cookie = "cookie_data=" + escape(txt) + ";expires=" + day.toGMTString();
+    document.cookie = "frist=" + escape(txt) + ";expires=" + day.toGMTString();
   }
 }
 
 function getCookie() {
   var cookieStr = document.cookie + ";";
-  var startNum = cookieStr.indexOf("cookie_data");
+  var startNum = cookieStr.indexOf("frist");
   var txt = "";
   if (startNum != -1){
     var endNum = cookieStr.indexOf(";",startNum);
-    txt = unescape(cookieStr.substring(startNum + "cookie_data".length + 1, endNum));
+    txt = unescape(cookieStr.substring(startNum + "frist".length + 1, endNum));
   }
   return txt;
 }
@@ -37,7 +37,7 @@ function saveCookie() {
     //クッキーの保存期間として5分後をセット
     day.setTime(day.getTime() + 7*24*60*60*1000);
     //入力内容と日付データをクッキーへ書き込む
-    document.cookie = "cookie_data=" + escape(txt) + ";expires=" + day.toGMTString();
+    document.cookie = "frist=" + escape(txt) + ";expires=" + day.toGMTString();
     //ページをリロード
     location.reload();
   }
