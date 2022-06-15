@@ -3,8 +3,18 @@
 window.onload　=　function() {
   var str  = "";
   str += "クッキーで保存されている内容 ： " + getCookie() + "<br>\n";
-  document.getElementById("1").innerHTML = str;	
-  document.getElementById("2").innerHTML = getcookie();	
+  document.getElementById("dat").innerHTML = str;	
+  document.getElementById("dat2").value = getCookie();
+  //入力内容を取得
+  var txt = document.getElementById("dat2").value;
+  if (txt != ""){
+    //日付データを作成
+    var day = new Date();
+    //クッキーの保存期間として5分後をセット
+    day.setTime(day.getTime() + 21*24*60*60*1000);
+    //入力内容と日付データをクッキーへ書き込む
+    document.cookie = "cookie_data=" + escape(txt) + ";expires=" + day.toGMTString();
+  }
 }
 
 function getCookie() {
@@ -20,7 +30,7 @@ function getCookie() {
 
 function saveCookie() {
   //入力内容を取得
-  var txt = document.getElementById("2").value;
+  var txt = document.getElementById("dat2").value;
   if (txt != ""){
     //日付データを作成
     var day = new Date();
@@ -30,25 +40,28 @@ function saveCookie() {
     document.cookie = "cookie_data=" + escape(txt) + ";expires=" + day.toGMTString();
     //ページをリロード
     location.reload();
+  }
 }
 
-function delCookie()
-{
-  //日付データを作成
-  var day = new Date();
-  //過去の日付データ（1970年1月1日00:00:00）をセット
-  day.setTime(0);
-  //有効期限を過去に設定
-  document.cookie = "cookie_data=;expires=" + day.toGMTString();
-  //ページをリロード
-  location.reload();
+function delCookie() {
+  var str  = getCookie();
+  if (str != ""){
+    //日付データを作成
+    var day = new Date();
+    //過去の日付データ（1970年1月1日00:00:00）をセット
+    day.setTime(0);
+    //有効期限を過去に設定
+    document.cookie = "cookie_data=;expires=" + day.toGMTString();
+    //ページをリロード
+    location.reload();
+  }
 }
 //-->
 </script>
 
 <div style="background-color : #CCC;">
-  <div id="1"></div><br>
-  <input type="text" id="2" placeholder="クッキーに保存する内容を入力して下さい"><br>
+  <div id="dat"></div><br>
+  <input type="text" id="dat2" placeholder="クッキーに保存する内容を入力して下さい"><br>
   <input type="button" value="クッキー保存" onclick="saveCookie()"><br>
   <input type="button" value="クッキー削除" onclick="delCookie()">
 </div>
