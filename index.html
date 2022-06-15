@@ -4,6 +4,7 @@ window.onload　=　function() {
   var str  = "";
   str += "クッキーで保存されている内容 ： " + getCookie() + "<br>\n";
   document.getElementById("dat").innerHTML = str;	
+  document.getElementById("dat2").innerHTML = getcookie() ;	
 }
 
 function getCookie() {
@@ -42,7 +43,6 @@ function delCookie()
   //ページをリロード
   location.reload();
 }
-document.getElementById("dat2").innerHTML = getcookie() ;	
 //-->
 </script>
 
