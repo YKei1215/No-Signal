@@ -3,8 +3,8 @@
 window.onload　=　function() {
   var str  = "";
   str += "クッキーで保存されている内容 ： " + getCookie() + "<br>\n";
-  document.getElementById("dat").innerHTML = str;	
-  document.getElementById("dat2").innerHTML = getcookie() ;	
+  document.getElementById("1").innerHTML = str;	
+  document.getElementById("2").innerHTML = getcookie();	
 }
 
 function getCookie() {
@@ -20,7 +20,7 @@ function getCookie() {
 
 function saveCookie() {
   //入力内容を取得
-  var txt = document.getElementById("dat2").value;
+  var txt = document.getElementById("2").value;
   if (txt != ""){
     //日付データを作成
     var day = new Date();
@@ -47,8 +47,8 @@ function delCookie()
 </script>
 
 <div style="background-color : #CCC;">
-  <div id="dat"></div><br>
-  <input type="text" id="dat2" placeholder="クッキーに保存する内容を入力して下さい"><br>
+  <div id="1"></div><br>
+  <input type="text" id="2" placeholder="クッキーに保存する内容を入力して下さい"><br>
   <input type="button" value="クッキー保存" onclick="saveCookie()"><br>
   <input type="button" value="クッキー削除" onclick="delCookie()">
 </div>
