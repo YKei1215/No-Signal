@@ -40,7 +40,7 @@ function delCookie()
   document.cookie = "cookie_data=;expires=" + day.toGMTString();
   //ページをリロード
   location.reload();
-  document.getElementById("dat2").value = "blue";
+  document.getElementById("dat2").value = getcookie();
 }
 //-->
 </script>
