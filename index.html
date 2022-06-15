@@ -1,6 +1,6 @@
 <div style="background-color : #CCC;">
-  <div id="dat"></div><br>
-  <input type="text" id="dat2" placeholder="クッキーに保存する内容を入力して下さい"><br>
+  <div id="dat0"></div><br>
+  <input type="text" id="dat1" placeholder="クッキーに保存する内容を入力して下さい"><br>
   <input type="button" value="クッキー保存" onclick="saveCookie()"><br>
   <input type="button" value="クッキー削除" onclick="delCookie()">
 </div>
@@ -9,7 +9,7 @@
 window.onload　=　function() {
   var str  = "";
   str += "クッキーで保存されている内容 ： " + getCookie() + "<br>\n";
-  document.getElementById("dat").innerHTML = str;	
+  document.getElementById("dat0").innerHTML = str;	
 }
 
 function getCookie() {
@@ -48,5 +48,5 @@ function delCookie()
   location.reload();
 }
 //-->
-document.getElementById("dat2").value = getcookie();
+document.getElementById("dat1").value = getcookie();
 </script>
