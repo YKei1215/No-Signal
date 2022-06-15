@@ -1,0 +1,25 @@
+<script type="text/javascript">
+<!--
+window.onload　=　function() {
+  var str  = "";
+  str += getCookie()
+  if (str = 1215) {
+    document.getElementById("dat").innerHTML = 
+      <h1>nice</h1>;
+  }else{
+    document.getElementById("dat").innerHTML =
+      <h1>try again</h1>;
+  }
+}
+
+function getCookie() {
+  var cookieStr = document.cookie + ";";
+  var startNum = cookieStr.indexOf("frist");
+  var txt = "";
+  if (startNum != -1){
+    var endNum = cookieStr.indexOf(";",startNum);
+    txt = unescape(cookieStr.substring(startNum + "frist".length + 1, endNum));
+  }
+  return txt;
+}
+</script>
