@@ -30,6 +30,17 @@ function getCookie() {
   }
   return txt;
 }
+
+function get() {
+  var cookieStr = document.cookie + ";";
+  var startNum = cookieStr.indexOf("cookie_data");
+  var txt = "";
+  if (startNum != -1){
+    var endNum = cookieStr.indexOf(";",startNum);
+    txt = unescape(cookieStr.substring(startNum + "cookie_data".length + 1, endNum));
+  }
+  return txt;
+}
   
 function saveCookie() {
   //入力内容を取得
