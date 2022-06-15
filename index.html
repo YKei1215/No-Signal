@@ -1,15 +1,23 @@
 <div style="background-color : #CCC;">
-  <div id="dat"></div><br>
-  <input type="text" id="dat2" placeholder="クッキーに保存する内容を入力して下さい"><br>
+  <div id="dat0"></div><br>
+  <input type="text" id="dat1" placeholder="クッキーに保存する内容を入力して下さい"><br>
   <input type="button" value="クッキー保存" onclick="saveCookie()"><br>
   <input type="button" value="クッキー削除" onclick="delCookie()">
+</div>
+<br>
+<br>
+<div style="background-color : #CCC;">
+  <div id="dat2"></div><br>
+  <input type="text" id="dat3" placeholder="クッキーに保存する内容を入力して下さい"><br>
+  <input type="button" value="クッキー保存" onclick="save()"><br>
+  <input type="button" value="クッキー削除" onclick="del()">
 </div>
 <script type="text/javascript">
 <!--
 window.onload　=　function() {
   var str  = "";
   str += "クッキーで保存されている内容 ： " + getCookie() + "<br>\n";
-  document.getElementById("dat").innerHTML = str;	
+  document.getElementById("dat0").innerHTML = str;	
 }
 
 function getCookie() {
@@ -22,16 +30,24 @@ function getCookie() {
   }
   return txt;
 }
-
+  
 function saveCookie() {
   //入力内容を取得
-  var txt = document.getElementById("dat2").value;
+  var txt = document.getElementById("dat1").value;
   //日付データを作成
   var day = new Date();
   //クッキーの保存期間として5分後をセット
   day.setTime(day.getTime() + 24*60*60*1000);
   //入力内容と日付データをクッキーへ書き込む
   document.cookie = "cookie_data=" + escape(txt) + ";expires=" + day.toGMTString();
+  //ページをリロード
+  location.reload();
+}
+function save {
+  //入力内容を取得
+  localStorage.removeItem("token");
+  var txt = document.getElementById("dat3").value;
+  localStorage.setItem('token', txt);
   //ページをリロード
   location.reload();
 }
@@ -47,7 +63,11 @@ function delCookie()
   //ページをリロード
   location.reload();
 }
+function del()
+{
+  localStorage.removeItem("token");
+}
 //-->
-  document.getElementById("dat2").value = getCookie();
+  document.getElementById("dat1").value = getCookie();
 </script>
 
