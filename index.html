@@ -1,43 +1,15 @@
-<div style="background-color : #CCC;">
-  <div id="dat0"></div><br>
-  <input type="text" id="dat1" placeholder="クッキーに保存する内容を入力して下さい"><br>
-  <input type="button" value="クッキー保存" onclick="saveCookie()"><br>
-  <input type="button" value="クッキー削除" onclick="delCookie()">
-</div>
-<script type="text/javascript">
-<!--
-window.onload　=　function() {
-  var str  = "";
-  str += "クッキーで保存されている内容 ： " + getCookie() + "<br>\n";
-  document.getElementById("dat0").innerHTML = str;	
-}
+var newData = data.filter(function(item, index){
+  if (item.name != "jiro") return true;
+});
 
-function getCookie() {
-  var cookieStr = document.cookie + ";";
-  var startNum = cookieStr.indexOf("cookie_data");
-  var txt = "";
-  if (startNum != -1){
-    var endNum = cookieStr.indexOf(";",startNum);
-    txt = unescape(cookieStr.substring(startNum + "cookie_data".length + 1, endNum));
-  }
-  return txt;
-}
+var changeData = data.filter(function(item, index){
+  if (item.name == "jiro") return true;
+});
+changeData[0].exam.math = 75;
 
-function saveCookie() {
-  var txt = document.getElementById("dat2").value;
-  var day = new Date();
-  day.setTime(day.getTime() + 60*5*1000);
-  document.cookie = "cookie_data=" + escape(txt) + ";expires=" + day.toGMTString();
-  location.reload();
-}
+newData.push(changeArray[0]);
+// [注意]
+// 最後にchangeArray[0]ではなくchangeArrayでpushすると
+// 更新されたデータだけ配列型で入ってしまう。
 
-function delCookie()
-{
-  var day = new Date();
-  day.setTime(0);
-  document.cookie = "cookie_data=;expires=" + day.toGMTString();
-  location.reload();
-}
-//-->
-document.getElementById("dat1").value = getcookie();
-</script>
+data = newData;
