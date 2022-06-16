@@ -1,0 +1,24 @@
+<script type="text/javascript">
+    function init() {
+        var paraPair  = new Array();
+        var paraName;                                   // 行Ａ
+        var paraValue = new Array();
+
+        var パラメタ部分 = location.search.split("?")[1];
+        var para = パラメタ部分.split("&");
+        var パラメタ数 = para.length;
+
+        for (var i = 0; i < パラメタ数; i++) {
+            paraPair = para[i].split("=");
+            paraName = decodeURIComponent(paraPair[0]);             // 行Ｂ
+            paraValue[paraName] = decodeURIComponent(paraPair[1]);  // 行Ｃ
+        }
+
+        document.getElementById('表示場所').innerHTML
+            = 'paraValue["e"]=' + paraValue["e"] + '<br>'        　// 行Ｄ
+            + 'paraValue["j"]=' + paraValue["j"];
+    }
+</script>
+
+<body onLoad="init()">
+<div id="表示場所" class="red"></div>
