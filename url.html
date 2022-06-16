@@ -1,0 +1,20 @@
+<script type="text/javascript">
+    function jump(リンク先) {
+        var url;
+        var パラメタ;
+        if (リンク先 == 3) {
+            url = "link-para-receive3.html";
+            パラメタ = "?e=abc&j=日本語";
+        }
+        if (リンク先 == 4) {
+            url = "link-para-receive4.html";
+            パラメタ = "?e=xyz&j=英語";
+        }
+        location.href = url + パラメタ;
+    }
+</script>
+
+<p>
+<input type="button" value="例３：receive3へ" onclick="jump(3)">
+<input type="button" value="例４：receive4へ" onclick="jump(4)">
+</p>
