@@ -1,68 +1,124 @@
 body {
-    margin: 0;
-    display: flex;
-    font-size: 2rem;
-    min-height: 100vh;
+  font-weight: 400;
 }
+
 main {
-    width: 700px;
-    margin: 0 auto;
-}
-aside {
-    width: 20%;
-    min-width: 250px;
-    display: flex;
-    flex-direction: column;
-}
-ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-div {
-    margin-top: auto;
-    height: 300px;
+  padding: 50px;
 }
 
-/* 🍔 */
-.open,
-.close {
-    display: none;
+main h1 {
+  font-weight: 400;
+  text-align: center;
 }
-input[type="checkbox"] {
-    position: absolute;
-    left: -50vw;
-}
-/* 🍔 */
 
-@media screen and (max-width: 1000px) {
-    main {
-        width: 100%;
-        padding-top: 50px;
-    }
-    /* 🍔 */
-    .open,
-    .close {
-        display: block;
-    }
-    .open {
-        position: absolute;
-    }
-    aside {
-        position: absolute;
-        left: -250px;
-        height: 100%;
-        transition: all 0.2s;
-        background: #ffffff;
-    }
-    input[type="checkbox"]:checked ~ aside {
-        left: 0;
-    }
-    input[type="checkbox"]:checked ~ .back {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.8) !important;
-    }
-    /* 🍔 */
+nav {
+  display: block;
+  position: fixed;
+  background-color: #ffffff;
+  width: 220px;
+  top: 0;
+  left: -300px;
+  bottom: 0;
+  transition: all 0.5s;
+  z-index: 3;
+  opacity: 0;
+}
+
+.open nav {
+  left: 0;
+  opacity: 1;
+}
+
+nav .inner {
+  padding: 25px;
+}
+
+nav .inner ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav .inner ul li {
+  margin: 0;
+  border-bottom: 1px solid #333;
+}
+
+nav .inner ul li a {
+  display: block;
+  color: #333;
+  font-size: 14px;
+  padding: 1rem;
+  text-decoration: none;
+  transition-duration: 0.2s;
+}
+
+nav .inner ul li a:hover {
+  background: #e4e4e4;
+}
+
+.toggle-btn {
+  display: block;
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  width: 30px;
+  height: 30px;
+  z-index: 3;
+  cursor: pointer;
+}
+
+.toggle-btn span {
+  position: absolute;
+  display: block;
+  left: 0;
+  width: 30px;
+  height: 2px;
+  background-color: #333;
+  transition: all 0.5s;
+  border-radius: 4px;
+}
+
+.toggle-btn span:nth-child(1) {
+  top: 4px;
+}
+.toggle-btn span:nth-child(2) {
+  top: 14px;
+}
+.toggle-btn span:nth-child(3) {
+  bottom: 4px;
+}
+
+.open .toggle-btn span {
+  background-color: #fff;
+}
+
+.open .toggle-btn span:nth-child(1) {
+  transform: translateY(10px) rotate(-315deg);
+}
+
+.open .toggle-btn span:nth-child(2) {
+  opacity: 0;
+}
+
+.open .toggle-btn span:nth-child(3) {
+  transform: translateY(-10px) rotate(315deg);
+}
+
+#mask {
+  display: none;
+  transition: all 0.5s;
+}
+
+.open #mask {
+  display: block;
+  background: #000;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: fixed;
+  opacity: 0.8;
+  z-index: 2;
+  cursor: pointer;
 }
