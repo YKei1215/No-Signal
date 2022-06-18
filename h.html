@@ -32,6 +32,17 @@
       <h1>Hamburger Menu Youtube</h1>
     </main>
 
-    <script src="script.js"></script>
+    <script>
+    let nav = document.querySelector("#navArea");
+    let btn = document.querySelector(".toggle-btn");
+    let mask = document.querySelector("#mask");
+    btn.onclick = () => {
+      nav.classList.toggle("open");
+    };
+
+    mask.onclick = () => {
+      nav.classList.toggle("open");
+    };
+    </script>
   </body>
 </html>
